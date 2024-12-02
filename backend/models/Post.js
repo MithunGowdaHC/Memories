@@ -26,6 +26,7 @@ const PostSchema  = new mongoose.Schema({
         required : true
     },
     categories : {
+        type : [String],
         required : false,
     }
 
