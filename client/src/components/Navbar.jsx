@@ -1,26 +1,70 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { IoIosSearch } from "react-icons/io";
+import { FaBars } from "react-icons/fa";
+import Menu from "./Menu";
+import { UserContext } from "../Context/UserContext";
 
 const Navbar = () => {
-    const user = true
+  const [menu, setMenu] = useState(false);
+  const [prompt, setPrompt] = useState("")
+  const navigate = useNavigate()
+  const path = useLocation().pathname
+  const changeMenu = () => {
+    setMenu(!menu);
+  };
+  const {user} = useContext(UserContext)
   return (
     <div className="flex items-center justify-between px-6 md:px-[200px] py-4">
       <Link to={"/"}>
-      <h1 className="text-lg md:text-xl font-extrabold" >Storyly</h1>
-
+        <h1 className="text-lg md:text-xl font-extrabold">Memories</h1>
       </Link>
-        <div className=' flex justify-center items-center  space-x-0'>
-            <p><IoIosSearch/></p>
-            <input type="text" placeholder='Search a post' className=' outline-none px-3' />
-        </div>
-        <div className="hidden md:flex items-center justify-center space-x-2 md:space-x-4">
-            {user ? <h3><Link to="/write">Write</Link></h3> : <h3><Link to="/login">Login</Link></h3>}
-            {user ? <h3>Profile</h3> : <h3><Link to="/register">Register</Link></h3>}
-        </div>
+      { path === "/" && <div className=" flex justify-center items-center  space-x-0">
+        <p onClick={()=>navigate(prompt?"?search=" + prompt: navigate("/"))} className=" cursor-pointer">
+          <IoIosSearch />
+        </p>
+        <input 
+        onChange={(e)=>setPrompt(e.target.value)}
+          type="text"
+          placeholder="Search a post"
+          className=" outline-none px-3"
+        />
+      </div> }
+      
+      <div className="hidden md:flex items-center justify-center space-x-2 md:space-x-4">
+        {user ? (
+          <h3>
+            <Link to="/write">Write</Link>
+          </h3>
+        ) : (
+          <h3>
+            <Link to="/login">Login</Link>
+          </h3>
+        )}
+        {user ? (
+          <div onClick={ changeMenu}>
+            <p className=" cursor-pointer relative">
+            <FaBars />
+          </p>
+          {menu && <Menu />}
+          </div>
+        ) : (
+          <h3>
+            <Link to="/register">Register</Link>
+          </h3>
+        )}
+      </div>
 
+      <div className=" md:hidden">
+        <div onClick={changeMenu} className=" md:hidden  text-lg">
+          <p className=" cursor-pointer text-xl relative">
+            <FaBars />
+          </p>
+          {menu && <Menu />}
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
