@@ -103,7 +103,7 @@ const Home = () => {
             </button>
           </div>
 
-          <div className="space-y-8  min-h-[80vh]">
+          <div className=" px-8 md:px-[200px] min-h-[80vh]">
             {loader ? (
               <div className=" h-[40vh] flex justify-center  items-center">
                 <Loader />
