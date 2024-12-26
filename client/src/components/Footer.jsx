@@ -14,7 +14,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8">
           {/* About Section */}
           <div className="md:col-span-1">
-            <h3 className="text-3xl font-bold text-indigo-500 mb-4">Storyly</h3>
+            <h3 className="text-3xl font-bold text-indigo-500 mb-4">Memories</h3>
             <p className="text-gray-400 mb-4">
               A platform where stories come alive. Discover, create, and share inspiring narratives from around the world.
             </p>
@@ -118,7 +118,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="border-t border-gray-800 mt-8 pt-6 text-center">
           <p className="text-gray-500">
-            © {new Date().getFullYear()} Storyly. All rights reserved.
+            © {new Date().getFullYear()} Memories. All rights reserved.
           </p>
         </div>
       </div>

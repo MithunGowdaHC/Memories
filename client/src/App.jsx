@@ -12,6 +12,7 @@ import EditPost from './pages/EditPost'
 import Profile from './pages/Profile'
 import { UserContextProvider } from './Context/UserContext'
 import MyBlogs from './components/MyBlogs'
+import AllPosts from './pages/AllPosts'
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path='/write' element={<CreatePost/>}/>
+        <Route path='/all-posts' element={<AllPosts/>}/>
         <Route path='/posts/post/:id' element={<PostDetails/>}/>
         <Route path='/edit/:id' element={<EditPost/>}/>
         <Route path='/myblogs/:id' element={<MyBlogs/>}/>

@@ -30,7 +30,7 @@ const Register = () => {
   return (
     <>
       <div className="flex items-center justify-between px-4 md:px-16 py-4 bg-gray-100 shadow-sm">
-        <h1 className="text-2xl font-extrabold text-blue-600">Storyly</h1>
+        <h1 className="text-2xl font-extrabold text-blue-600">Memories</h1>
         <h3>
           <Link
             to="/login"

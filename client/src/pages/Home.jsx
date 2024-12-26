@@ -53,9 +53,9 @@ const Home = () => {
               <button className="px-6 py-3 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition duration-300">
                 Start Reading
               </button>
-              <button className="px-6 py-3 border border-indigo-600 text-indigo-600 rounded-full hover:bg-indigo-50 transition duration-300">
+              <Link to={"/write"} className="px-6 py-3 border border-indigo-600 text-indigo-600 rounded-full hover:bg-indigo-50 transition duration-300">
                 Write a Story
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -98,9 +98,9 @@ const Home = () => {
         <div className="container mx-auto px-4 py-12">
           <div className="flex justify-around items-center mb-8">
             <h2 className="text-3xl font-bold text-gray-800">Recent Stories</h2>
-            <button className="text-indigo-600 hover:text-indigo-800 transition duration-300">
+            <Link to={"/all-posts"}  className="text-indigo-600 hover:text-indigo-800 transition duration-300">
               View All Posts
-            </button>
+            </Link>
           </div>
 
           <div className=" px-8 md:px-[200px] min-h-[80vh]">
